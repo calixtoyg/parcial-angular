@@ -4,12 +4,13 @@ import {WelcomeComponent} from './components/welcome/welcome.component';
 import {RouterModule, Routes} from '@angular/router';
 import {GenericTableComponent} from './components/generic-table/generic-table.component';
 import {AltaActorComponent} from './components/alta-actor/alta-actor.component';
+import {ActoresListadoComponent} from './components/actores-listado/actores-listado.component';
 
 const routes: Routes = [
   {path: 'welcome', component: WelcomeComponent},
   {path: 'genericTable', component: GenericTableComponent},
   {path: 'altaActor', component: AltaActorComponent},
-  {path: 'parent', component: GenericTableComponent, children: [{path: 'children', component: GenericTableComponent}]}
+  {path: 'actor', component: GenericTableComponent, children: [{path: 'listado', component: ActoresListadoComponent}]}
 ];
 
 @NgModule({

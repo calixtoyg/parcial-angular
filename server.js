@@ -2,10 +2,10 @@ const express = require('express');
 
 const app = express();
 
-app.use(express.static('./dist/'));
+app.use(express.static(__dirname + '/angularapp'));
 
 app.get('/*', (req, res) =>
-  res.sendFile('index.html', {root: 'dist/'}),
+  res.sendFile(path.join(__dirname + '/angularapp/index.html')),
 );
 
 app.listen(process.env.PORT || 8080, () => {

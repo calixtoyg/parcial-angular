@@ -13,6 +13,7 @@ import { SpinnerComponent } from './components/spinner/spinner.component';
 import { AltaActorComponent } from './components/alta-actor/alta-actor.component';
 import {environment} from '../environments/environment';
 import {AngularFireModule} from '@angular/fire';
+import { ActoresListadoComponent } from './components/actores-listado/actores-listado.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import {AngularFireModule} from '@angular/fire';
     FooterComponent,
     GenericTableComponent,
     SpinnerComponent,
-    AltaActorComponent
+    AltaActorComponent,
+    ActoresListadoComponent
   ],
   imports: [
     BrowserModule,
