@@ -1,0 +1,27 @@
+<p>Table is just a mapping of objects to table rows with <code>ngFor</code></p>
+
+<table class="table table-striped">
+  <thead>
+  <tr>
+<!--    <template *ngFor="let header in headers">-->
+<!--      <th scope="col">{{header.name}}</th>-->
+<!--    </template>-->
+    <th scope="col">#</th>
+    <th scope="col">Country</th>
+    <th scope="col">Area</th>
+    <th scope="col">Population</th>
+
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let row of body; index as i">
+    <th scope="row">{{ i + 1 }}</th>
+    <td>
+      <img [src]="'https://upload.wikimedia.org/wikipedia/commons/' + row.flag" class="mr-2" style="width: 20px">
+      {{ row.name }}
+    </td>
+    <td>{{ row.area | number }}</td>
+    <td>{{ row.population | number }}</td>
+  </tr>
+  </tbody>
+</table>
