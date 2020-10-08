@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-welcome',
@@ -6,10 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./welcome.component.css']
 })
 export class WelcomeComponent implements OnInit {
+  public actor: string;
+
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  elevateActor(actor: string) {
+    this.actor = actor;
+  }
 }

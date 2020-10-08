@@ -1,6 +1,8 @@
 <p>Table is just a mapping of objects to table rows with <code>ngFor</code></p>
-
-<table class="table table-striped">
+<div *ngIf="loading">
+<app-spinner overlay="true"></app-spinner>
+</div>
+<table class="table table-striped" >
   <thead>
   <tr>
 <!--    <template *ngFor="let header in headers">-->
@@ -10,6 +12,7 @@
     <th scope="col">Country</th>
     <th scope="col">Area</th>
     <th scope="col">Population</th>
+    <th scope="col">Cargar actor</th>
 
   </tr>
   </thead>
@@ -22,6 +25,7 @@
     </td>
     <td>{{ row.area | number }}</td>
     <td>{{ row.population | number }}</td>
+    <td><button class="btn btn-outline-secondary" (click)="actorEvent(row.name)">Cargar actor</button></td>
   </tr>
   </tbody>
 </table>

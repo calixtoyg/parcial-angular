@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 
 @Component({
   selector: 'app-generic-table',
@@ -6,6 +6,7 @@ import {Component, Input, OnInit} from '@angular/core';
   styleUrls: ['./generic-table.component.css']
 })
 export class GenericTableComponent implements OnInit {
+  @Output() messageToEmit = new EventEmitter<string>()
   @Input() headers = [
     {name: '#'},
     {name: 'Country'},
@@ -13,6 +14,12 @@ export class GenericTableComponent implements OnInit {
     {name: 'Population'},
   ];
   @Input() body = [
+    {
+      name: 'Argentina',
+      flag: '1/1a/Flag_of_Argentina.svg',
+      area: 278000000,
+      population: 44490000
+    },
     {
       name: 'Russia',
       flag: 'f/f3/Flag_of_Russia.svg',
@@ -38,10 +45,15 @@ export class GenericTableComponent implements OnInit {
       population: 1409517397
     }
   ];
+  loading: boolean;
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
   }
 
+  actorEvent(country: string) {
+    this.messageToEmit.emit(country);
+  }
 }

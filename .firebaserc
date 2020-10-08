@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "tp-sala-de-juegos-87db7": {
+      "hosting": {
+        "parcial-angular": [
+          "tp-sala-de-juegos-87db7"
+        ]
+      }
+    }
+  }
+}
