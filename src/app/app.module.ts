@@ -29,6 +29,7 @@ import { WelcomePeliculaActorComponent } from './components/welcome-pelicula-act
 import { ModifyMovieModalComponent } from './components/modify-movie-modal/modify-movie-modal.component';
 import { ActoresListadoModalComponent } from './components/actores-listado-modal/actores-listado-modal.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,

@@ -17,7 +17,7 @@ const routes: Routes = [
   {path: 'genericTable', component: GenericTableComponent},
   {path: 'altaActor', component: AltaActorComponent},
   {path: 'actor', component: ActorComponent, children: [{path: 'listado', component: ActoresListadoComponent}]},
-  {path: 'pelicula', component: PeliculaComponent, children: [{path: 'listado', component: PeliculasListadoComponent}]},
+  {path: 'pelicula', component: PeliculaComponent, children: [{path: 'listado', component: PeliculasListadoComponent, data: {animation: 'isRight'}}], data: {animation: 'isRight'}},
   {path: 'altaPelicula', component: AltaPeliculaComponent},
   {path: 'altaPeliculaActor', component: WelcomePeliculaActorComponent}
 ];
