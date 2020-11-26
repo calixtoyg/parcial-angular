@@ -1,1 +1,48 @@
-<p>actores-listado works!</p>
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <!--    <template *ngFor="let header in headers">-->
+    <!--      <th scope="col">{{header.name}}</th>-->
+    <!--    </template>-->
+    <th scope="col">#</th>
+    <th scope="col">Nombre</th>
+    <th scope="col">Apellido</th>
+    <th scope="col">Pais</th>
+    <th scope="col">Sexo</th>
+    <th scope="col">Fecha de nacimiento</th>
+    <th scope="col">Foto</th>
+    <th scope="col" *ngIf="!withoutActions" >Acciones</th>
+
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let row of actores | async; index as i">
+    <th scope="row">{{ i + 1 }}</th>
+
+    <td>{{ row.name}}</td>
+    <td>{{ row.lastname }}</td>
+    <td>{{ row.country }}</td>
+    <td>{{ row.sex }}</td>
+    <td>{{row.birthDate | date: 'dd/MM/yyyy'}}</td>
+    <td>
+      <img [src]="'./assets/images/actors/' + row.name.toLowerCase() + '.jpg'" class="mr-2" style="width: 40px">
+    </td>
+    <td>
+      <div *ngIf="!withoutActions">
+        <div *ngIf="!asTable">
+          <div class="btn-group btn-group-toggle">
+            <button class="btn btn-danger" name="options" id="option1" (click)="deleteActor(row)">Borrar</button>
+            <button class="btn btn-primary" (click)="eventoMostrarActor(row)" name="options" id="{{ i + 1 }}">Mostrar</button>
+            <button class="btn btn-warning" (click)="modifyActor(row)" type="button" name="options" id="option3">Modificar</button>
+
+          </div>
+        </div>
+        <div *ngIf="asTable && withSelect">
+          <button class="btn btn-outline-primary" name="options" id="option1" (click)="eventoMostrarActor(row)">Select</button>
+        </div>
+      </div>
+    </td>
+  </tr>
+  </tbody>
+</table>
+

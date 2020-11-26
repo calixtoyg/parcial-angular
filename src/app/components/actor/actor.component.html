@@ -1,0 +1,15 @@
+<div></div>
+<div *ngIf="loading">
+  <app-spinner overlay="true"></app-spinner>
+</div>
+<div class="row">
+  <div class="col-12">
+    <app-actores-listado (actor)="loadActor($event)" ></app-actores-listado>
+
+  </div>
+
+<!--  <ng-template #content let-modal>-->
+<!--    <app-actor-card [actor]="actor"></app-actor-card>-->
+<!--  </ng-template>-->
+
+</div>

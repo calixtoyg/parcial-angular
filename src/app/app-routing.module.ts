@@ -5,12 +5,21 @@ import {RouterModule, Routes} from '@angular/router';
 import {GenericTableComponent} from './components/generic-table/generic-table.component';
 import {AltaActorComponent} from './components/alta-actor/alta-actor.component';
 import {ActoresListadoComponent} from './components/actores-listado/actores-listado.component';
+import {ActorComponent} from './components/actor/actor.component';
+import {AltaPeliculaComponent} from './components/alta-pelicula/alta-pelicula.component';
+import {PeliculaComponent} from './components/pelicula/pelicula.component';
+import {PeliculasListadoComponent} from './components/peliculas-listado/peliculas-listado.component';
+import {WelcomePeliculaActorComponent} from './components/welcome-pelicula-actor/welcome-pelicula-actor.component';
 
 const routes: Routes = [
+  {path: 'welcome/pelicula/actor', component: WelcomePeliculaActorComponent},
   {path: 'welcome', component: WelcomeComponent},
   {path: 'genericTable', component: GenericTableComponent},
   {path: 'altaActor', component: AltaActorComponent},
-  {path: 'actor', component: GenericTableComponent, children: [{path: 'listado', component: ActoresListadoComponent}]}
+  {path: 'actor', component: ActorComponent, children: [{path: 'listado', component: ActoresListadoComponent}]},
+  {path: 'pelicula', component: PeliculaComponent, children: [{path: 'listado', component: PeliculasListadoComponent}]},
+  {path: 'altaPelicula', component: AltaPeliculaComponent},
+  {path: 'altaPeliculaActor', component: WelcomePeliculaActorComponent}
 ];
 
 @NgModule({

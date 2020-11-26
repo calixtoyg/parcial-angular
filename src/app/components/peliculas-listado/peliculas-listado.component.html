@@ -1,0 +1,37 @@
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <!--    <template *ngFor="let header in headers">-->
+    <!--      <th scope="col">{{header.name}}</th>-->
+    <!--    </template>-->
+    <th scope="col">#</th>
+    <th scope="col">Titulo</th>
+    <th scope="col">Release Date</th>
+    <th scope="col">Genero</th>
+    <th scope="col">Audience</th>
+    <th scope="col">Acciones</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let row of movies | async; index as i">
+    <th scope="row">{{ i + 1 }}</th>
+
+    <td>{{ row.title}}</td>
+    <td>{{ row.releaseDate | date:'yyyy/MM/dd' }}</td>
+    <td>{{ getGenre(row.genre)}}</td>
+    <td>{{ row.audience | number}}</td>
+<!--    <td>-->
+<!--      <img [src]="'./assets/images/actors/' + row.name.toLowerCase() + '.jpg'" class="mr-2" style="width: 40px">-->
+<!--    </td>-->
+    <td>
+      <div class="btn-group btn-group-toggle">
+        <button class="btn btn-sm btn-danger" name="options" id="option1" (click)="deleteMovie(row)">Borrar</button>
+        <button class="btn btn-sm btn-warning" (click)="modifyMovie(row)" type="button" name="options" id="option3">Modificar</button>
+        <button class="btn  btn-sm btn-primary" (click)="showActor(row)" type="button" name="options" id="option3">Mostrar Actor</button>
+
+      </div>
+    </td>
+  </tr>
+  </tbody>
+</table>
+

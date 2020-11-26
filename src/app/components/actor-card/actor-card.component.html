@@ -1,0 +1,9 @@
+<div class="card" style="width: 18rem;">
+  <img [src]="'./assets/images/actors/' + actor.name.toLowerCase() + '.jpg'" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{{actor.name + ' ' + actor.lastname}}</h5>
+    <p class="card-text">Fecha de nacimiento: {{actor.date}}</p>
+    <p class="card-text">Sexo: {{actor.sexo}}</p>
+    <p class="card-text">Pais: {{actor.country}}</p>
+  </div>
+</div>

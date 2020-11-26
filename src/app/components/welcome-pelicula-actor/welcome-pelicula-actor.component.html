@@ -1,0 +1,12 @@
+<div *ngIf="loading">
+  <app-spinner overlay="true"></app-spinner>
+</div>
+<div class="row">
+  <div class="col-sm-12 col-md-6">
+    <app-alta-pelicula (movieToSave)="saveMovie($event)" [preSelectedActor]="preSelectedActor" [save]=true ></app-alta-pelicula>
+  </div>
+  <div class="col-sm-12 col-md-6">
+    <app-actores-listado (actor)="preSelectValues($event)" [asTable]=true withSelect=true ></app-actores-listado>
+  </div>
+</div>
+<p>welcome-pelicula-actor works!</p>
