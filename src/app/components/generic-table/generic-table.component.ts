@@ -50,6 +50,7 @@ export class GenericTableComponent implements OnInit {
   @Input() actions: boolean;
   @Output() movie: EventEmitter<string> = new EventEmitter<string>();
   @Output() actor: EventEmitter<string> = new EventEmitter<string>();
+  @Output() country: EventEmitter<any> = new EventEmitter<any>();
 
   constructor() {
   }
@@ -67,5 +68,9 @@ export class GenericTableComponent implements OnInit {
 
   elevateActor(country: string) {
     this.actor.emit(country);
+  }
+
+  elevateCountry(country: any) {
+    this.country.emit(country);
   }
 }

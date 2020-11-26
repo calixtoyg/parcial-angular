@@ -6,6 +6,7 @@ import {ActoresListadoModalComponent} from '../actores-listado-modal/actores-lis
 import {PeliculaListadoModalComponent} from '../pelicula-listado-modal/pelicula-listado-modal.component';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {Subscription} from 'rxjs';
+import {PaisModalComponent} from '../pais-modal/pais-modal.component';
 
 @Component({
   selector: 'app-paises-listado',
@@ -33,5 +34,12 @@ export class PaisesListadoComponent implements OnInit, OnDestroy {
   showActorsForCountry($event: string) {
     const modalRef = this.modalService.open(ActoresListadoModalComponent);
     modalRef.componentInstance.selectedCountry = $event;
+  }
+
+  showCountry($event: any) {
+    console.log($event)
+    const modalRef = this.modalService.open(PaisModalComponent);
+    modalRef.componentInstance.country = $event;
+
   }
 }

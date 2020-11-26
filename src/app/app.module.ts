@@ -31,6 +31,8 @@ import { ActoresListadoModalComponent } from './components/actores-listado-modal
 import { PaisesListadoComponent } from './components/paises-listado/paises-listado.component';
 import { PeliculaListadoModalComponent } from './components/pelicula-listado-modal/pelicula-listado-modal.component';
 import { CountryPipe } from './pipes/country.pipe';
+import { PaisComponent } from './components/pais/pais.component';
+import { PaisModalComponent } from './components/pais-modal/pais-modal.component';
 
 
 @NgModule({
@@ -58,6 +60,8 @@ import { CountryPipe } from './pipes/country.pipe';
     PaisesListadoComponent,
     PeliculaListadoModalComponent,
     CountryPipe,
+    PaisComponent,
+    PaisModalComponent,
   ],
   imports: [
     BrowserModule,
