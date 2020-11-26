@@ -16,7 +16,7 @@
   </tr>
   </thead>
   <tbody>
-  <tr *ngFor="let row of actores | async; index as i">
+  <tr *ngFor="let row of actores | async | country:selectedCountry; index as i">
     <th scope="row">{{ i + 1 }}</th>
 
     <td>{{ row.name}}</td>

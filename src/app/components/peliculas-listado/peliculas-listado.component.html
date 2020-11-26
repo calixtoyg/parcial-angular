@@ -9,11 +9,11 @@
     <th scope="col">Release Date</th>
     <th scope="col">Genero</th>
     <th scope="col">Audience</th>
-    <th scope="col">Acciones</th>
+    <th *ngIf="actions" scope="col">Acciones</th>
   </tr>
   </thead>
   <tbody>
-  <tr *ngFor="let row of movies | async; index as i">
+  <tr *ngFor="let row of movies | async | country:selectedCountry; index as i">
     <th scope="row">{{ i + 1 }}</th>
 
     <td>{{ row.title}}</td>
@@ -23,7 +23,7 @@
 <!--    <td>-->
 <!--      <img [src]="'./assets/images/actors/' + row.name.toLowerCase() + '.jpg'" class="mr-2" style="width: 40px">-->
 <!--    </td>-->
-    <td>
+    <td *ngIf="actions">
       <div class="btn-group btn-group-toggle">
         <button class="btn btn-sm btn-danger" name="options" id="option1" (click)="deleteMovie(row)">Borrar</button>
         <button class="btn btn-sm btn-warning" (click)="modifyMovie(row)" type="button" name="options" id="option3">Modificar</button>

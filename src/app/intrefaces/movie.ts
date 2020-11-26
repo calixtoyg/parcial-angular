@@ -6,4 +6,5 @@ export interface Movie {
   image?: string;
   audience: number;
   actors: string[];
+  country: string;
 }

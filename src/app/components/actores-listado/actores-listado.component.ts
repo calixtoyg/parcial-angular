@@ -19,6 +19,7 @@ export class ActoresListadoComponent implements OnInit, OnChanges {
   @Input() asTable: boolean;
   @Input() withoutActions: boolean;
   @Input() withSelect: boolean;
+  @Input() selectedCountry: string;
 
   constructor(public actorsService: ActorsService, private modalService: NgbModal) {
   }

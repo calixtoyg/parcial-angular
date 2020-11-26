@@ -52,4 +52,19 @@ export class ActorsService {
         }))
       .pipe(take(1));
   }
+
+  getActorsByCountry(country: string): Observable<Actor[]> {
+    return this.db.collection<Actor>('actors', ref => ref
+      .where('country', '==', country)
+    )
+      .snapshotChanges()
+      .pipe(
+        map(dataArray => dataArray.map(each => {
+          const data = each.payload.doc.data() as Actor;
+          data.id = each.payload.doc.id;
+          return data;
+        }))
+      );
+
+  }
 }

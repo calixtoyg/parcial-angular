@@ -10,14 +10,16 @@ import {Actor} from '../../intrefaces/actor';
 export class ActoresListadoModalComponent implements OnInit, OnChanges {
 
   @Input() actors: Actor[];
+  @Input() selectedCountry: string;
 
   constructor(public activeModal: NgbActiveModal) { }
 
   ngOnInit(): void {
+    console.log(this.selectedCountry + 'is selected')
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    console.log(changes)
+    console.log(changes);
     if (changes.actors.currentValue) {
       this.actors = changes.actors.currentValue;
     }

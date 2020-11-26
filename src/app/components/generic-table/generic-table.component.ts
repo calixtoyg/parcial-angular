@@ -6,7 +6,7 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
   styleUrls: ['./generic-table.component.css']
 })
 export class GenericTableComponent implements OnInit {
-  @Output() messageToEmit = new EventEmitter<string>()
+  @Output() messageToEmit = new EventEmitter<string>();
   @Input() headers = [
     {name: '#'},
     {name: 'Country'},
@@ -46,6 +46,10 @@ export class GenericTableComponent implements OnInit {
     }
   ];
   loading: boolean;
+  @Input() loadActor: boolean;
+  @Input() actions: boolean;
+  @Output() movie: EventEmitter<string> = new EventEmitter<string>();
+  @Output() actor: EventEmitter<string> = new EventEmitter<string>();
 
   constructor() {
   }
@@ -55,5 +59,13 @@ export class GenericTableComponent implements OnInit {
 
   actorEvent(country: string) {
     this.messageToEmit.emit(country);
+  }
+
+  elevateMovie(row: string) {
+    this.movie.emit(row);
+  }
+
+  elevateActor(country: string) {
+    this.actor.emit(country);
   }
 }

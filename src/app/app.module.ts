@@ -28,6 +28,9 @@ import {MatSelectModule} from '@angular/material/select';
 import { WelcomePeliculaActorComponent } from './components/welcome-pelicula-actor/welcome-pelicula-actor.component';
 import { ModifyMovieModalComponent } from './components/modify-movie-modal/modify-movie-modal.component';
 import { ActoresListadoModalComponent } from './components/actores-listado-modal/actores-listado-modal.component';
+import { PaisesListadoComponent } from './components/paises-listado/paises-listado.component';
+import { PeliculaListadoModalComponent } from './components/pelicula-listado-modal/pelicula-listado-modal.component';
+import { CountryPipe } from './pipes/country.pipe';
 
 
 @NgModule({
@@ -52,6 +55,9 @@ import { ActoresListadoModalComponent } from './components/actores-listado-modal
     WelcomePeliculaActorComponent,
     ModifyMovieModalComponent,
     ActoresListadoModalComponent,
+    PaisesListadoComponent,
+    PeliculaListadoModalComponent,
+    CountryPipe,
   ],
   imports: [
     BrowserModule,

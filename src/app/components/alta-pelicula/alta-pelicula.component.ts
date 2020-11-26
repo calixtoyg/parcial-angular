@@ -23,14 +23,21 @@ export class AltaPeliculaComponent implements OnInit, OnChanges, OnDestroy {
   selectedActors: Actor[] = [];
   @Input() preSelectedActor: Actor;
   @Output() movieToSave = new EventEmitter<Movie>();
+  countries = [
+    'Argentina',
+    'Russia',
+    'Canada',
+    'United States',
+    'China'
+  ];
 
 
   constructor(private actorsService: ActorsService) {
   }
 
   ngOnDestroy(): void {
-        this.subs.forEach(value => value.unsubscribe());
-    }
+    this.subs.forEach(value => value.unsubscribe());
+  }
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes?.preSelectedActor?.currentValue && this.selectedActors.findIndex(value => value.id === this.preSelectedActor.id) === -1) {
@@ -41,8 +48,7 @@ export class AltaPeliculaComponent implements OnInit, OnChanges, OnDestroy {
   ngOnInit(): void {
 
     if (this.movie?.actors) {
-      this.subs.push(this.actorsService.getByIds(this.movie.actors).subscribe(value =>
-        {
+      this.subs.push(this.actorsService.getByIds(this.movie.actors).subscribe(value => {
           this.selectedActors = value;
         }
       ));
@@ -55,6 +61,7 @@ export class AltaPeliculaComponent implements OnInit, OnChanges, OnDestroy {
       genre: new FormControl(this.movie?.genre, [Validators.required]),
       releaseDate: new FormControl(this.movie?.releaseDate, [Validators.required]),
       audience: new FormControl(this.movie?.audience, [Validators.required]),
+      country: new FormControl(this.movie?.country, [Validators.required]),
       actors: new FormControl(this.movie?.actors, []),
     });
   }

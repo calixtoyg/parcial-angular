@@ -1,12 +1,10 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, Input, OnDestroy, OnInit} from '@angular/core';
 import {Observable, Subscription} from 'rxjs';
 import {Movie} from '../../intrefaces/movie';
 import {MoviesService} from '../../services/movies.service';
 import {ConfirmModalComponent} from '../confirm-modal/confirm-modal.component';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
-import {ModifyActorModalComponent} from '../modify-actor-modal/modify-actor-modal.component';
 import {ModifyMovieModalComponent} from '../modify-movie-modal/modify-movie-modal.component';
-import {ActorModalComponent} from '../actor-modal/actor-modal.component';
 import {ActoresListadoModalComponent} from '../actores-listado-modal/actores-listado-modal.component';
 import {ActorsService} from '../../services/actors.service';
 
@@ -18,6 +16,8 @@ import {ActorsService} from '../../services/actors.service';
 export class PeliculasListadoComponent implements OnInit, OnDestroy {
   movies: Observable<Movie[]>;
   subs: Subscription[] = [];
+  @Input() selectedCountry: string;
+  @Input() actions: boolean;
 
 
   constructor(public moviesService: MoviesService, private modalService: NgbModal, private actorsService: ActorsService) {
